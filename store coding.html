@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CP Express | Gaming Top-Up</title><link rel="stylesheet" href="style.css">
+</head><body><header><nav class="navbar"><div class="logo">
+<h2>CP Express</h2>
+</div><ul class="menu"><li><a href="#home">Home</a></li>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#checkout">Checkout</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#contact">Contact</a></li></ul></nav></header><section id="home" class="hero"><div class="hero-content"><h1>Fast Gaming Top-Ups</h1><p>
+Top up your favorite game quickly and securely.
+</p><a href="#packages" class="btn">
+Browse Packages
+</a></div></section><section id="packages"><h2 class="title">
+Popular CP Packages
+</h2><div class="package-grid"><div class="card"><h3>80 CP</h3><p>KSh 100</p><button onclick="selectPackage('80 CP','100')">
+Select
+</button></div><div class="card popular"><span>Most Popular</span>
+
+<h3>420 CP</h3><p>KSh 500</p><button onclick="selectPackage('420 CP','500')">
+Select
+</button></div><div class="card"><h3>880 CP</h3><p>KSh 1000</p><button onclick="selectPackage('880 CP','1000')">
+Select
+</button></div><div class="card"><h3>2400 CP</h3><p>KSh 2500</p><button onclick="selectPackage('2400 CP','2500')">
+Select
+</button></div></div></section><section id="checkout"><h2 class="title">
+Checkout
+</h2><div class="checkout-box"><p id="packageText">
+No package selected
+</p><input
+type="text"
+id="uid"
+placeholder="Enter Game UID">
+
+<input
+type="text"
+id="phone"
+placeholder="Enter Phone Number">
+
+<div class="summary"><h3>Order Summary</h3><p id="summaryPackage">
+Package: None
+</p><p id="summaryPrice">
+Amount: KSh 0
+</p></div><button onclick="payNow()" class="pay-btn">Pay Now
+
+</button><div id="status"></div></div></section><section id="reviews"><h2 class="title">
+Customer Reviews
+</h2><div class="reviews"><div class="review">★★★★★
+
+<p>
+Very clean website and easy to use.
+</p></div><div class="review">★★★★★
+
+<p>
+Fast ordering experience.
+</p></div><div class="review">★★★★★
+
+<p>
+Simple checkout process.
+</p></div></div></section><section id="faq"><h2 class="title">
+Frequently Asked Questions
+</h2><div class="faq"><h3>How long does a top-up take?</h3><p>
+Processing time depends on the payment method used.
+</p><h3>Can I change my UID?</h3><p>
+Please double-check your UID before submitting an order.
+</p><h3>Which payment methods are supported?</h3><p>
+Payment methods can be added once your website is connected to a payment provider.
+</p></div></section><section id="contact"><h2 class="title">
+Contact Us
+</h2><p>Email: info@cpexpress.com</p><p>WhatsApp: +254 XXX XXX XXX</p><p>Location: Kenya</p></section><footer><p>© 2026 CP Express
+
+</p><p>Independent gaming top-up website concept.
+
+</p></footer><script src="script.js"></script></body></html>*{
+   
+
+    <div style="
+        margin-top:25px;
+        padding:20px;
+        border-radius:12px;
+        background:#1f2937;
+        text-align:center;">
+
+        <h2>⏳ Processing...</h2>
+
+        <p>Checking your order.</p>
+
+    </div>
+
+    `;
+
+    setTimeout(function(){
+
+        document.getElementById("status").innerHTML = `
+
+        <div style="
+            margin-top:25px;
+            padding:25px;
+            border-radius:12px;
+            background:#14532d;
+            text-align:center;">
+
+            <h2>✅ Test Complete</h2>
+
+            <hr><br>
+
+            <p><strong>Order No:</strong> ${orderNumber}</p>
+
+            <p><strong>Package:</strong> ${selectedPackage}</p>
+
+            <p><strong>Amount:</strong> KSh ${selectedPrice}</p>
+
+            <p><strong>Game UID:</strong> ${uid}</p>
+
+            <p><strong>Phone:</strong> ${phone}</p>
+
+            <br>
+
+            <button onclick="newOrder()"
+            style="
+            padding:12px 25px;
+            background:#2563eb;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;">
+
+            New Order
+
+            </button>
+
+        </div>
+
+        `;
+
+    },3000);
+
