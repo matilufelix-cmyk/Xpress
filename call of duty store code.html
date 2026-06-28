@@ -1,0 +1,218 @@
+   <!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CP Express</title><style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+}
+
+header{
+    background:#111827;
+    padding:20px;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.hero{
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.hero p{
+    margin-top:10px;
+}
+
+.products{
+    padding:50px 20px;
+}
+
+.products h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.card button{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.payment{
+    padding:50px 20px;
+    text-align:center;
+}
+
+input{
+    width:320px;
+    max-width:90%;
+    padding:12px;
+    margin:10px;
+    border:none;
+    border-radius:8px;
+}
+
+.pay-btn{
+    background:#22c55e;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+#status{
+    margin-top:20px;
+}
+
+footer{
+    background:#111827;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+</style></head><body><header>
+<nav>
+<h2>CP Express</h2>
+<p>Gaming Top-Up Test Mode</p>
+</nav>
+</header><section class="hero">
+<h1>CP Express</h1>
+<p>Fast Gaming Top-Up Experience</p>
+</section><section class="products">
+<h2>Select CP Package</h2><div class="cards"><div class="card">
+<h3>80 CP</h3>
+<p>KSh 100</p>
+<button onclick="selectPackage('80 CP')">
+Select
+</button>
+</div><div class="card">
+<h3>420 CP</h3>
+<p>KSh 500</p>
+<button onclick="selectPackage('420 CP')">
+Select
+</button>
+</div><div class="card">
+<h3>880 CP</h3>
+<p>KSh 1000</p>
+<button onclick="selectPackage('880 CP')">
+Select
+</button>
+</div></div>
+</section><section class="payment"><h2>Checkout</h2><p id="selectedPackage">
+No package selected
+</p><input
+type="text"
+id="phone"
+placeholder="Enter Phone Number">
+
+<br><button class="pay-btn" onclick="payNow()">
+Pay Now
+</button><div id="status"></div></section><footer>
+<p>
+CP Express is an independent website concept for learning web design.
+</p>
+</footer><script>
+
+let selectedPackage = "";
+
+function selectPackage(pkg){
+
+    selectedPackage = pkg;
+
+    document.getElementById("selectedPackage").innerText =
+    "Selected Package: " + pkg;
+}
+
+function payNow(){
+
+    const phone =
+    document.getElementById("phone").value;
+
+    if(selectedPackage === ""){
+        alert("Please select a package.");
+        return;
+    }
+
+    if(phone.trim() === ""){
+        alert("Please enter a phone number.");
+        return;
+    }
+
+    document.getElementById("status").innerHTML = `
+    <div style="
+        background:#1e293b;
+        padding:20px;
+        border-radius:10px;
+        margin-top:20px;">
+        <h3>Processing Payment</h3>
+        <p>Package: ${selectedPackage}</p>
+        <p>Phone: ${phone}</p>
+        <p>Please wait...</p>
+    </div>
+    `;
+
+    setTimeout(() => {
+
+        document.getElementById("status").innerHTML = `
+        <div style="
+            background:#14532d;
+            padding:20px;
+            border-radius:10px;
+            margin-top:20px;">
+
+            <h2>Payment Successful</h2>
+
+            <p>Package: ${selectedPackage}</p>
+
+            <p>
+            Reference:
+            CPX-${Date.now()}
+            </p>
+
+            <p>
+            Test transaction completed.
+            </p>
+
+        </div>
+        `;
+
+    }, 3000);
+
+}
+
+</script></body>
+</html>
